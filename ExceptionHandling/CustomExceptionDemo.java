@@ -8,7 +8,7 @@ class Account {
 		this.balance = balance;
 	}
 
-	void withdraw(float amt) {
+	void withdraw(float amt) throws InsufficientBalance{
 		try {
 			if (balance < amt) {
 				throw new InsufficientBalance("InsufficientBalance");
@@ -24,7 +24,7 @@ class Account {
 }
 
 public class CustomExceptionDemo {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InsufficientBalance {
 		Account acc=new Account(10000);
 		acc.withdraw(2000);
 	}
